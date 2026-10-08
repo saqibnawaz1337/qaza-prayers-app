@@ -1,5 +1,5 @@
 // Offline support: app files are cached on install; fonts are cached the first time they load.
-const CACHE = "qaza-v2";
+const CACHE = "qaza-v3";
 const FILES = ["./", "index.html", "privacy.html", "manifest.json",
   "icon-192.png", "icon-512.png", "maskable-192.png", "maskable-512.png",
   "apple-touch-icon.png", "favicon-32.png"];
@@ -25,4 +25,13 @@ self.addEventListener("fetch", e => {
       return hit || net;
     })
   );
+});
+
+// Open (or focus) the app when a reminder notification is tapped.
+self.addEventListener("notificationclick", e => {
+  e.notification.close();
+  e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(list => {
+    for (const c of list) { if ("focus" in c) return c.focus(); }
+    return self.clients.openWindow("./");
+  }));
 });

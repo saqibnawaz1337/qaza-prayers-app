@@ -138,8 +138,57 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
 .loading{text-align:center;color:var(--muted);padding:40px 0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-</style>
+/* ===== v2 look: night-teal hero with a quiet girih-star pattern, gold accents ===== */
+:root{--hero1:#1f6b5c;--hero2:#0e3a33;--goldL:#f0c66a;--shadow:0 1px 2px rgba(15,50,44,.05),0 10px 28px -14px rgba(15,60,52,.28)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--hero1:#17463d;--hero2:#0a211d;--shadow:none}}
+:root[data-theme="dark"]{--hero1:#17463d;--hero2:#0a211d;--shadow:none}
+body{background:radial-gradient(1200px 500px at 50% -200px,var(--accent-soft),transparent 70%),var(--bg)}
+.card{border-radius:20px;box-shadow:var(--shadow)}
+h1{display:flex;align-items:center;gap:8px}
+h1::before{content:"";width:22px;height:22px;flex:none;background:var(--gold);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15 3a9 9 0 1 0 6 15.7A8 8 0 0 1 15 3z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15 3a9 9 0 1 0 6 15.7A8 8 0 0 1 15 3z'/%3E%3C/svg%3E") center/contain no-repeat}
+.hero{position:relative;overflow:hidden;border:0;color:#fff;background:linear-gradient(155deg,var(--hero1),var(--hero2));padding:22px 20px 20px;border-radius:24px}
+.hero::before{content:"";position:absolute;inset:0;opacity:.09;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.2'%3E%3Cpath d='M28 6l6 16 16 6-16 6-6 16-6-16-16-6 16-6z'/%3E%3Crect x='17' y='17' width='22' height='22' transform='rotate(45 28 28)'/%3E%3C/g%3E%3C/svg%3E")}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(240,198,106,.28),transparent 65%);pointer-events:none}
+.hero > *{position:relative}
+.hero-top{display:flex;justify-content:space-between;gap:8px;font-size:.78rem;color:rgba(255,255,255,.72);flex-wrap:wrap}
+.hero .eyebrow{color:rgba(255,255,255,.7)}
+.hero .num{color:#fff}
+.hero .prayedNum{color:var(--goldL)}
+.hero .bar{background:rgba(255,255,255,.14);height:10px}
+.hero .bar i{background:linear-gradient(90deg,#d9a441,var(--goldL));box-shadow:0 0 12px rgba(240,198,106,.6)}
+.hero .meta{color:rgba(255,255,255,.72)}
+.hero .meta b{color:#fff}
+.ring .prog{stroke:url(#ringGrad)}
+.full{background:linear-gradient(135deg,var(--gold-soft),color-mix(in srgb,var(--gold-soft) 60%,var(--surface)));border-radius:14px}
+.pr{border-radius:18px;box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--line) 70%,transparent)}
+.pr-head{align-items:center}
+.pr-ic{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:var(--gold-soft);color:var(--gold);flex:none}
+.pr-ic svg{width:18px;height:18px}
+.pr-title{display:flex;align-items:center;gap:8px;min-width:0}
+.add{background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 70%,#000));border:0;border-radius:12px}
+.minus{border-radius:12px}
+.seg{border-radius:12px}
+.rem-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.rem-head p{margin:4px 0 0}
+.switch{position:relative;width:52px;height:30px;flex:none;cursor:pointer;display:block}
+.switch input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer;z-index:1}
+.switch span{position:absolute;inset:0;border-radius:99px;background:var(--line);transition:background .2s}
+.switch span::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s}
+.switch input:checked + span{background:var(--accent)}
+.switch input:checked + span::after{transform:translateX(22px)}
+.switch input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.rem-body{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.rem-time{flex-direction:row;align-items:center;justify-content:space-between;font-weight:700}
+input[type=time]{font:inherit;font-family:var(--body);font-size:1.05rem;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
+.cal-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cal-btns button{display:flex;align-items:center;justify-content:center;gap:6px;font-size:.85rem}
+.rem-status{font-size:.82rem;color:var(--accent);margin:0}
+.banner{display:flex;align-items:center;gap:12px;background:var(--gold-soft);border:1px solid var(--gold);border-radius:16px;padding:12px 14px;font-weight:700}
+.banner .bell{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center}
+.banner button{margin-inline-start:auto;flex:none;background:transparent;border:0;font-size:1.2rem;color:var(--muted);padding:4px 8px}
+@media (max-width:380px){.cal-btns{grid-template-columns:1fr}}
 
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -181,7 +230,13 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 
   <!-- Tracker -->
   <div id="tracker" hidden style="display:flex;flex-direction:column;gap:18px">
+    <div class="banner" id="remBanner" hidden role="status">
+      <span class="bell" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></span>
+      <span id="remBannerText"></span>
+      <button id="remBannerClose" aria-label="Close">×</button>
+    </div>
     <section class="card hero" aria-live="polite">
+      <div class="hero-top"><span id="gDate"></span><span id="hDate"></span></div>
       <div class="split">
         <div><span class="eyebrow" data-t="prayed">Prayed</span><span class="num prayedNum" id="doneTotal">0</span></div>
         <div><span class="eyebrow" data-t="remaining">Remaining</span><span class="num" id="remaining">0</span></div>
@@ -198,7 +253,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
     <section class="card" style="display:flex;flex-direction:column;gap:14px">
       <div class="today">
         <div class="ring" aria-hidden="true">
-          <svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42"/><circle class="prog" id="ringProg" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="263.9"/></svg>
+          <svg viewBox="0 0 100 100"><defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9a441"/><stop offset="1" stop-color="#f0c66a"/></linearGradient></defs><circle class="track" cx="50" cy="50" r="42"/><circle class="prog" id="ringProg" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="263.9"/></svg>
           <div class="lbl"><b id="ringNum">0</b><span id="ringGoal"></span></div>
         </div>
         <div class="today-text">
@@ -208,6 +263,22 @@ input[type=range]{width:100%;accent-color:var(--accent)}
         </div>
       </div>
       <button class="full" id="fullDay"></button>
+    </section>
+
+    <section class="card" id="remCard">
+      <div class="rem-head">
+        <div><h2 data-t="remTitle">Daily reminder</h2><p class="muted" data-t="remDesc">Get a gentle reminder every day to pray your qaza.</p></div>
+        <label class="switch" for="remOn"><input type="checkbox" id="remOn" aria-label="Daily reminder"><span></span></label>
+      </div>
+      <div class="rem-body" id="remBody" hidden>
+        <label class="rem-time" for="remTime"><span data-t="remTimeLbl">Reminder time</span><input type="time" id="remTime" value="21:00"></label>
+        <p class="rem-status" id="remStatus"></p>
+        <div class="cal-btns">
+          <button id="remGcal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span data-t="remGcal">Google Calendar</span></button>
+          <button id="remIcs"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg><span data-t="remIcs">Phone calendar</span></button>
+        </div>
+        <p class="muted" style="margin:0" data-t="remNote">For a reminder that rings every day even when the app is closed, also add it to your calendar.</p>
+      </div>
     </section>
 
     <section style="display:flex;flex-direction:column;gap:10px">
@@ -262,10 +333,10 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 const LANGS=[["en","English"],["ur","اردو"],["ar","العربية"],["fa","فارسی"],["tr","Türkçe"],["id","Bahasa Indonesia"],["ms","Bahasa Melayu"],["bn","বাংলা"],["hi","हिन्दी"],["fr","Français"],["sw","Kiswahili"],["ru","Русский"],["no","Norsk"]];
 const RTL=["ur","ar","fa"];
 const T={
-en:{title:"Qaza Namaz Tracker",loading:"Loading…",setupTitle:"Calculate your qaza",setupIntro:"Nobody remembers exactly. Give your honest best guess; scholars say that is enough.",iam:"I am",male:"Male",female:"Female",age:"Current age",baligh:"Age at puberty (baligh)",balighHint:"Boys usually 12–15, girls 9–15. If unsure, use the lower age.",regular:"Age you started praying all 5 regularly",regularHint:"If you haven't started yet, enter your current age.",period:"Average days of period each month",periodHint:"No qaza is owed for these days, so they are subtracted.",pct:"How much did you pray in that time?",pctVal:"About {n}% prayed",witr:"Include Witr (Hanafi view: Witr is wajib and is made up)",yourEstimate:"Your estimate",resSub:"{y} years · about {d} missed days · {p} prayers per day",resNone:"No qaza owed by this estimate. Alhamdulillah!",start:"Start tracking",setupNote:"If you pray more than you owe, the extra counts as nafl. For your own situation, check the details with a scholar you trust.",prayed:"Prayed",remaining:"Remaining",complete:"complete",totalOwed:"Total owed",fullDays:"Full days",finish:"Finish ≈",done:"Done",today:"Today",of:"of {n}",msgStart:"Start with one qaza after your next namaz.",msgDone:"Goal done! {n} qaza prayed today. MashaAllah.",msgMore:"{n} prayed today, {m} more to reach your goal.",streak:"{n} day(s) in a row",fullBtn:"+ Complete one full qaza day (all {n})",each:"Each prayer",undo:"Undo last",dotsNote:"Gold dots show how many of each you prayed today, against your daily goal.",prayedOf:"/ {n} prayed",left:"{n} left",todayN:"+{n} today",recent:"Recent qaza",empty:"Nothing yet. Tap +1 after you pray a qaza and it will show here.",fullDayLog:"Full qaza day",qaza:"{p} qaza",todayW:"Today",yesterday:"Yesterday",pace:"My pace",paceDays:"{n} day(s)",paceLine:"{n} qaza day(s) daily = {m} extra prayers ({n} after each daily namaz). About {d} days, or {y} years, to finish.",last14:"Last 14 days",settings:"Settings",owedLbl:"Prayers owed in total",prayedLbl:"Already prayed in that time",save:"Save numbers",redo:"Recalculate my qaza",reset:"Reset progress",resetQ:"Clear all counted prayers?",resetYes:"Yes, reset",cancel:"Cancel",footer:"Extra prayers beyond what you owe count as nafl. Keep going, step by step.",tCounted:"{p} qaza counted · {n} prayed in total",tFull:"Full qaza day counted · {n} prayed in total. MashaAllah!",tUndone:"Undone",tSaved:"Numbers saved",tBad:"Enter whole numbers for both",tReset:"Progress reset",syncAcc:"Saved to your account",syncDev:"Saved on this device",syncing:"Saving…",backup:"Download backup",restore:"Restore backup",backupNote:"Your progress is stored only on this phone. Download a backup now and then, so you don't lose it if you change phones or clear browser data.",tRestored:"Backup restored",tBadFile:"That file is not a Qaza Tracker backup",
+en:{title:"Qaza Namaz Tracker",loading:"Loading…",setupTitle:"Calculate your qaza",setupIntro:"Nobody remembers exactly. Give your honest best guess; scholars say that is enough.",iam:"I am",male:"Male",female:"Female",age:"Current age",baligh:"Age at puberty (baligh)",balighHint:"Boys usually 12–15, girls 9–15. If unsure, use the lower age.",regular:"Age you started praying all 5 regularly",regularHint:"If you haven't started yet, enter your current age.",period:"Average days of period each month",periodHint:"No qaza is owed for these days, so they are subtracted.",pct:"How much did you pray in that time?",pctVal:"About {n}% prayed",witr:"Include Witr (Hanafi view: Witr is wajib and is made up)",yourEstimate:"Your estimate",resSub:"{y} years · about {d} missed days · {p} prayers per day",resNone:"No qaza owed by this estimate. Alhamdulillah!",start:"Start tracking",setupNote:"If you pray more than you owe, the extra counts as nafl. For your own situation, check the details with a scholar you trust.",prayed:"Prayed",remaining:"Remaining",complete:"complete",totalOwed:"Total owed",fullDays:"Full days",finish:"Finish ≈",done:"Done",today:"Today",of:"of {n}",msgStart:"Start with one qaza after your next namaz.",msgDone:"Goal done! {n} qaza prayed today. MashaAllah.",msgMore:"{n} prayed today, {m} more to reach your goal.",streak:"{n} day(s) in a row",fullBtn:"+ Complete one full qaza day (all {n})",each:"Each prayer",undo:"Undo last",dotsNote:"Gold dots show how many of each you prayed today, against your daily goal.",prayedOf:"/ {n} prayed",left:"{n} left",todayN:"+{n} today",recent:"Recent qaza",empty:"Nothing yet. Tap +1 after you pray a qaza and it will show here.",fullDayLog:"Full qaza day",qaza:"{p} qaza",todayW:"Today",yesterday:"Yesterday",pace:"My pace",paceDays:"{n} day(s)",paceLine:"{n} qaza day(s) daily = {m} extra prayers ({n} after each daily namaz). About {d} days, or {y} years, to finish.",last14:"Last 14 days",settings:"Settings",owedLbl:"Prayers owed in total",prayedLbl:"Already prayed in that time",save:"Save numbers",redo:"Recalculate my qaza",reset:"Reset progress",resetQ:"Clear all counted prayers?",resetYes:"Yes, reset",cancel:"Cancel",footer:"Extra prayers beyond what you owe count as nafl. Keep going, step by step.",tCounted:"{p} qaza counted · {n} prayed in total",tFull:"Full qaza day counted · {n} prayed in total. MashaAllah!",tUndone:"Undone",tSaved:"Numbers saved",tBad:"Enter whole numbers for both",tReset:"Progress reset",syncAcc:"Saved to your account",syncDev:"Saved on this device",syncing:"Saving…",backup:"Download backup",restore:"Restore backup",backupNote:"Your progress is stored only on this phone. Download a backup now and then, so you don't lose it if you change phones or clear browser data.",tRestored:"Backup restored",tBadFile:"That file is not a Qaza Tracker backup",remTitle:"Daily reminder",remDesc:"Get a gentle reminder every day to pray your qaza.",remTimeLbl:"Reminder time",remGcal:"Google Calendar",remIcs:"Phone calendar",remNote:"For a reminder that rings every day even when the app is closed, also add it to your calendar.",remStOn:"Notifications are on. They work best when the app is installed on your home screen.",remStDenied:"Notifications are blocked for this app. Use the calendar buttons instead.",remStNA:"This browser can't show notifications. Use the calendar buttons instead.",remBanner:"Today's qaza is still waiting. {m} more to reach your goal!",notifTitle:"Qaza Namaz reminder",notifBody:"{m} qaza left for today's goal. Bismillah!",calTitle:"Qaza Namaz",calDesc:"Time for today's qaza. Open the app:",tRemSaved:"Reminder set for {t}",tCal:"Calendar file downloaded. Open it to add the daily reminder.",
 p:{fajr:"Fajr",zuhr:"Zuhr",asr:"Asr",maghrib:"Maghrib",isha:"Isha",witr:"Witr"}},
 
-ur:{title:"قضا نماز ٹریکر",loading:"لوڈ ہو رہا ہے…",setupTitle:"اپنی قضا کا حساب لگائیں",setupIntro:"کسی کو بالکل یاد نہیں ہوتا۔ اپنا ایماندارانہ اندازہ لگائیں، علماء کے مطابق یہی کافی ہے۔",iam:"میں ہوں",male:"مرد",female:"عورت",age:"موجودہ عمر",baligh:"بالغ ہونے کی عمر",balighHint:"لڑکے عموماً ۱۲ سے ۱۵، لڑکیاں ۹ سے ۱۵ سال۔ یقین نہ ہو تو کم عمر لکھیں۔",regular:"پانچوں نمازیں باقاعدگی سے کس عمر میں شروع کیں",regularHint:"اگر ابھی شروع نہیں کیں تو موجودہ عمر لکھیں۔",period:"ہر مہینے ماہواری کے اوسط دن",periodHint:"ان دنوں کی قضا نہیں ہوتی، اس لیے یہ دن نکال دیے جاتے ہیں۔",pct:"اس عرصے میں آپ نے کتنی نمازیں پڑھیں؟",pctVal:"تقریباً {n}٪ پڑھیں",witr:"وتر شامل کریں (حنفی مسلک: وتر واجب ہے اور اس کی قضا ہے)",yourEstimate:"آپ کا اندازہ",resSub:"{y} سال · تقریباً {d} دن قضا · روزانہ {p} نمازیں",resNone:"اس اندازے کے مطابق کوئی قضا نہیں۔ الحمدللہ!",start:"ٹریکنگ شروع کریں",setupNote:"اگر واجب سے زیادہ پڑھ لیں تو زائد نفل شمار ہوں گی۔ اپنی صورتحال کے لیے کسی معتبر عالم سے ضرور پوچھیں۔",prayed:"ادا کیں",remaining:"باقی",complete:"مکمل",totalOwed:"کل قضا",fullDays:"مکمل دن",finish:"تکمیل ≈",done:"مکمل",today:"آج",of:"{n} میں سے",msgStart:"اپنی اگلی نماز کے بعد ایک قضا سے شروع کریں۔",msgDone:"آج کا ہدف مکمل! آج {n} قضا ادا کیں۔ ماشاءاللہ",msgMore:"آج {n} ادا کیں، ہدف کے لیے {m} مزید۔",streak:"مسلسل {n} دن",fullBtn:"+ ایک مکمل قضا دن ادا کیا ({n} نمازیں)",each:"ہر نماز",undo:"واپس لیں",dotsNote:"سنہری نقطے بتاتے ہیں کہ آج ہر نماز کی کتنی قضا ادا کی۔",prayedOf:"/ {n} ادا",left:"{n} باقی",todayN:"آج +{n}",recent:"حالیہ قضا",empty:"ابھی کچھ نہیں۔ قضا پڑھ کر +1 دبائیں، یہاں نظر آئے گی۔",fullDayLog:"مکمل قضا دن",qaza:"قضا {p}",todayW:"آج",yesterday:"کل",pace:"میری رفتار",paceDays:"{n} دن",paceLine:"روزانہ {n} قضا دن = {m} اضافی نمازیں (ہر نماز کے بعد {n})۔ تقریباً {d} دن یا {y} سال میں مکمل۔",last14:"پچھلے ۱۴ دن",settings:"ترتیبات",owedLbl:"کل قضا نمازیں",prayedLbl:"اس عرصے میں پڑھی گئیں",save:"محفوظ کریں",redo:"دوبارہ حساب لگائیں",reset:"پیش رفت صاف کریں",resetQ:"تمام گنی ہوئی نمازیں صاف کر دیں؟",resetYes:"ہاں، صاف کریں",cancel:"منسوخ",footer:"واجب سے زائد نمازیں نفل شمار ہوں گی۔ قدم بہ قدم چلتے رہیں۔",tCounted:"قضا {p} گنی گئی · کل {n} ادا",tFull:"مکمل قضا دن گنا گیا · کل {n} ادا۔ ماشاءاللہ!",tUndone:"واپس لے لیا",tSaved:"محفوظ ہو گیا",tBad:"دونوں میں پورے نمبر لکھیں",tReset:"پیش رفت صاف ہو گئی",syncAcc:"آپ کے اکاؤنٹ میں محفوظ",syncDev:"اس ڈیوائس پر محفوظ",syncing:"محفوظ ہو رہا ہے…",backup:"بیک اپ ڈاؤن لوڈ کریں",restore:"بیک اپ واپس لائیں",backupNote:"آپ کی پیش رفت صرف اسی فون میں محفوظ ہے۔ وقتاً فوقتاً بیک اپ ڈاؤن لوڈ کر لیں تاکہ فون بدلنے یا ڈیٹا صاف ہونے پر ضائع نہ ہو۔",tRestored:"بیک اپ واپس آ گیا",tBadFile:"یہ قضا ٹریکر کا بیک اپ نہیں ہے",
+ur:{title:"قضا نماز ٹریکر",loading:"لوڈ ہو رہا ہے…",setupTitle:"اپنی قضا کا حساب لگائیں",setupIntro:"کسی کو بالکل یاد نہیں ہوتا۔ اپنا ایماندارانہ اندازہ لگائیں، علماء کے مطابق یہی کافی ہے۔",iam:"میں ہوں",male:"مرد",female:"عورت",age:"موجودہ عمر",baligh:"بالغ ہونے کی عمر",balighHint:"لڑکے عموماً ۱۲ سے ۱۵، لڑکیاں ۹ سے ۱۵ سال۔ یقین نہ ہو تو کم عمر لکھیں۔",regular:"پانچوں نمازیں باقاعدگی سے کس عمر میں شروع کیں",regularHint:"اگر ابھی شروع نہیں کیں تو موجودہ عمر لکھیں۔",period:"ہر مہینے ماہواری کے اوسط دن",periodHint:"ان دنوں کی قضا نہیں ہوتی، اس لیے یہ دن نکال دیے جاتے ہیں۔",pct:"اس عرصے میں آپ نے کتنی نمازیں پڑھیں؟",pctVal:"تقریباً {n}٪ پڑھیں",witr:"وتر شامل کریں (حنفی مسلک: وتر واجب ہے اور اس کی قضا ہے)",yourEstimate:"آپ کا اندازہ",resSub:"{y} سال · تقریباً {d} دن قضا · روزانہ {p} نمازیں",resNone:"اس اندازے کے مطابق کوئی قضا نہیں۔ الحمدللہ!",start:"ٹریکنگ شروع کریں",setupNote:"اگر واجب سے زیادہ پڑھ لیں تو زائد نفل شمار ہوں گی۔ اپنی صورتحال کے لیے کسی معتبر عالم سے ضرور پوچھیں۔",prayed:"ادا کیں",remaining:"باقی",complete:"مکمل",totalOwed:"کل قضا",fullDays:"مکمل دن",finish:"تکمیل ≈",done:"مکمل",today:"آج",of:"{n} میں سے",msgStart:"اپنی اگلی نماز کے بعد ایک قضا سے شروع کریں۔",msgDone:"آج کا ہدف مکمل! آج {n} قضا ادا کیں۔ ماشاءاللہ",msgMore:"آج {n} ادا کیں، ہدف کے لیے {m} مزید۔",streak:"مسلسل {n} دن",fullBtn:"+ ایک مکمل قضا دن ادا کیا ({n} نمازیں)",each:"ہر نماز",undo:"واپس لیں",dotsNote:"سنہری نقطے بتاتے ہیں کہ آج ہر نماز کی کتنی قضا ادا کی۔",prayedOf:"/ {n} ادا",left:"{n} باقی",todayN:"آج +{n}",recent:"حالیہ قضا",empty:"ابھی کچھ نہیں۔ قضا پڑھ کر +1 دبائیں، یہاں نظر آئے گی۔",fullDayLog:"مکمل قضا دن",qaza:"قضا {p}",todayW:"آج",yesterday:"کل",pace:"میری رفتار",paceDays:"{n} دن",paceLine:"روزانہ {n} قضا دن = {m} اضافی نمازیں (ہر نماز کے بعد {n})۔ تقریباً {d} دن یا {y} سال میں مکمل۔",last14:"پچھلے ۱۴ دن",settings:"ترتیبات",owedLbl:"کل قضا نمازیں",prayedLbl:"اس عرصے میں پڑھی گئیں",save:"محفوظ کریں",redo:"دوبارہ حساب لگائیں",reset:"پیش رفت صاف کریں",resetQ:"تمام گنی ہوئی نمازیں صاف کر دیں؟",resetYes:"ہاں، صاف کریں",cancel:"منسوخ",footer:"واجب سے زائد نمازیں نفل شمار ہوں گی۔ قدم بہ قدم چلتے رہیں۔",tCounted:"قضا {p} گنی گئی · کل {n} ادا",tFull:"مکمل قضا دن گنا گیا · کل {n} ادا۔ ماشاءاللہ!",tUndone:"واپس لے لیا",tSaved:"محفوظ ہو گیا",tBad:"دونوں میں پورے نمبر لکھیں",tReset:"پیش رفت صاف ہو گئی",syncAcc:"آپ کے اکاؤنٹ میں محفوظ",syncDev:"اس ڈیوائس پر محفوظ",syncing:"محفوظ ہو رہا ہے…",backup:"بیک اپ ڈاؤن لوڈ کریں",restore:"بیک اپ واپس لائیں",backupNote:"آپ کی پیش رفت صرف اسی فون میں محفوظ ہے۔ وقتاً فوقتاً بیک اپ ڈاؤن لوڈ کر لیں تاکہ فون بدلنے یا ڈیٹا صاف ہونے پر ضائع نہ ہو۔",tRestored:"بیک اپ واپس آ گیا",tBadFile:"یہ قضا ٹریکر کا بیک اپ نہیں ہے",remTitle:"روزانہ یاد دہانی",remDesc:"ہر روز قضا پڑھنے کی نرم سی یاد دہانی۔",remTimeLbl:"یاد دہانی کا وقت",remGcal:"گوگل کیلنڈر",remIcs:"فون کیلنڈر",remNote:"اگر چاہتے ہیں کہ ایپ بند ہونے پر بھی روز یاد دہانی آئے تو اسے کیلنڈر میں بھی شامل کر لیں۔",remStOn:"نوٹیفکیشن آن ہیں۔ ایپ ہوم اسکرین پر انسٹال ہو تو بہتر کام کرتے ہیں۔",remStDenied:"اس ایپ کے نوٹیفکیشن بند ہیں۔ نیچے کیلنڈر والے بٹن استعمال کریں۔",remStNA:"یہ براؤزر نوٹیفکیشن نہیں دکھا سکتا۔ کیلنڈر والے بٹن استعمال کریں۔",remBanner:"آج کی قضا ابھی باقی ہے۔ ہدف کے لیے {m} مزید!",notifTitle:"قضا نماز کی یاد دہانی",notifBody:"آج کے ہدف کے لیے {m} قضا باقی ہیں۔ بسم اللہ!",calTitle:"قضا نماز",calDesc:"آج کی قضا کا وقت۔ ایپ کھولیں:",tRemSaved:"یاد دہانی {t} پر لگ گئی",tCal:"کیلنڈر فائل ڈاؤن لوڈ ہو گئی۔ اسے کھول کر روزانہ یاد دہانی شامل کریں۔",
 p:{fajr:"فجر",zuhr:"ظہر",asr:"عصر",maghrib:"مغرب",isha:"عشاء",witr:"وتر"}},
 
 ar:{title:"متتبّع الصلوات الفائتة",loading:"جارٍ التحميل…",setupTitle:"احسب صلواتك الفائتة",setupIntro:"لا أحد يتذكر بدقة. ضع تقديرك الصادق، ويقول العلماء إن غلبة الظن تكفي.",iam:"أنا",male:"ذكر",female:"أنثى",age:"العمر الحالي",baligh:"سن البلوغ",balighHint:"الأولاد عادةً من ١٢ إلى ١٥، والبنات من ٩ إلى ١٥. إن لم تكن متأكدًا فاختر الأصغر.",regular:"العمر الذي بدأت فيه المواظبة على الصلوات الخمس",regularHint:"إن لم تبدأ بعد، فاكتب عمرك الحالي.",period:"متوسط أيام الحيض في الشهر",periodHint:"لا قضاء لصلوات هذه الأيام، لذا تُطرح.",pct:"كم صليت في تلك الفترة؟",pctVal:"صليت نحو {n}٪",witr:"احتساب الوتر (عند الحنفية الوتر واجب ويُقضى)",yourEstimate:"تقديرك",resSub:"{y} سنة · نحو {d} يومًا فائتًا · {p} صلوات يوميًا",resNone:"لا قضاء عليك بحسب هذا التقدير. الحمد لله!",start:"ابدأ المتابعة",setupNote:"ما زاد عن الواجب يُحتسب نافلة. لحالتك الخاصة راجع عالمًا تثق به.",prayed:"تمّ قضاؤها",remaining:"المتبقي",complete:"مكتمل",totalOwed:"إجمالي الفائت",fullDays:"أيام كاملة",finish:"الانتهاء ≈",done:"تمّ",today:"اليوم",of:"من {n}",msgStart:"ابدأ بقضاء صلاة واحدة بعد صلاتك القادمة.",msgDone:"تحقق الهدف! قضيت {n} صلاة اليوم. ما شاء الله.",msgMore:"قضيت {n} اليوم، وبقي {m} لبلوغ الهدف.",streak:"{n} يومًا متتاليًا",fullBtn:"+ أتممت يوم قضاء كاملًا ({n} صلوات)",each:"كل صلاة",undo:"تراجع",dotsNote:"النقاط الذهبية تبيّن ما قضيته اليوم من كل صلاة مقابل هدفك اليومي.",prayedOf:"/ {n} مقضية",left:"بقي {n}",todayN:"اليوم +{n}",recent:"آخر ما قضيت",empty:"لا شيء بعد. اضغط +1 بعد كل صلاة تقضيها وستظهر هنا.",fullDayLog:"يوم قضاء كامل",qaza:"قضاء {p}",todayW:"اليوم",yesterday:"أمس",pace:"وتيرتي",paceDays:"{n} يوم",paceLine:"{n} يوم قضاء يوميًا = {m} صلاة إضافية ({n} بعد كل صلاة). تنتهي خلال نحو {d} يومًا أو {y} سنة.",last14:"آخر ١٤ يومًا",settings:"الإعدادات",owedLbl:"إجمالي الصلوات الفائتة",prayedLbl:"ما صليته في تلك الفترة",save:"حفظ",redo:"إعادة الحساب",reset:"مسح التقدم",resetQ:"مسح كل الصلوات المحتسبة؟",resetYes:"نعم، امسح",cancel:"إلغاء",footer:"ما زاد عن الواجب يُحتسب نافلة. استمر خطوة بخطوة.",tCounted:"احتُسب قضاء {p} · المجموع {n}",tFull:"احتُسب يوم كامل · المجموع {n}. ما شاء الله!",tUndone:"تم التراجع",tSaved:"تم الحفظ",tBad:"أدخل أرقامًا صحيحة في الحقلين",tReset:"تم مسح التقدم",syncAcc:"محفوظ في حسابك",syncDev:"محفوظ على هذا الجهاز",syncing:"جارٍ الحفظ…",
@@ -319,6 +390,7 @@ function normalize(s){
   const o={owed:0,prayed:0,pace:2,perDay:6,...s};
   o.done={...blank(),...(s&&s.done||{})}; o.log={...(s&&s.log||{})};
   o.recent=Array.isArray(s&&s.recent)?s.recent.slice(0,30):[];
+  o.rem={on:false,time:"21:00",last:"",...(s&&s.rem||{})};
   return o;
 }
 const owedNet=()=>Math.max(state.owed-state.prayed,0);
@@ -372,6 +444,7 @@ function timeLabel(ts){
   return d.toLocaleDateString("en-GB",{day:"numeric",month:"short"})+" "+t;
 }
 function render(){
+  renderDates();
   const P=PR(), pp=perPrayer(), total=pp*P.length, done=doneSum(), left=Math.max(total-done,0), goal=state.pace*P.length;
   $("doneTotal").textContent=fmt(done); $("remaining").textContent=fmt(left); $("totalOwed").textContent=fmt(total);
   const pct=total?done/total:0;
@@ -391,7 +464,7 @@ function render(){
     const d=state.done[p.k], rem=Math.max(pp-d,0), today=t[p.k]||0;
     const dots=Array.from({length:Math.max(state.pace,today)},(_,i)=>`<i class="${i<today?"on":""}"></i>`).join("");
     const el=document.createElement("div"); el.className="pr"; el.dataset.k=p.k;
-    el.innerHTML=`<div class="pr-head"><span class="pr-name">${pName(p.k)}</span><span class="pr-ar" lang="ar">${p.a}</span></div>
+    el.innerHTML=`<div class="pr-head"><span class="pr-title"><span class="pr-ic" aria-hidden="true">${ICON[p.k]}</span><span class="pr-name">${pName(p.k)}</span></span><span class="pr-ar" lang="ar">${p.a}</span></div>
       <div class="pr-count"><span class="num">${fmt(d)}</span><small>${tr("prayedOf",{n:fmt(pp)})}</small></div>
       <div class="mini"><i style="width:${pp?Math.min(d/pp*100,100):0}%"></i></div>
       <div class="pr-sub"><span>${tr("left",{n:fmt(rem)})}</span><span>${today?tr("todayN",{n:today}):""}</span></div>
@@ -420,6 +493,7 @@ function render(){
   $("undo").disabled=!history.length;
   if(document.activeElement!==$("owed"))$("owed").value=state.owed;
   if(document.activeElement!==$("prayedIn"))$("prayedIn").value=state.prayed;
+  renderRem();
 }
 
 function change(k,delta){
@@ -471,6 +545,98 @@ $("backup").onclick=()=>{const blob=new Blob([JSON.stringify(state,null,1)],{typ
 $("restore").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
   r.onload=()=>{try{const d=JSON.parse(r.result);if(!(d&&d.owed>=0&&d.done))throw 0;state=normalize(d);history=[];showTracker();commit();toast(tr("tRestored"));}
   catch(_){toast(tr("tBadFile"));}e.target.value="";};r.readAsText(f);};
+
+/* ---------- prayer icons ---------- */
+const SV=(d)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+const ICON={
+ fajr:SV('<path d="M3 18h18M6 18a6 6 0 0 1 12 0M12 6v3M5.6 10.6l1.4 1.4M18.4 10.6L17 12M8 21h8"/>'),
+ zuhr:SV('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'),
+ asr:SV('<circle cx="10" cy="10" r="3.5"/><path d="M10 3v1.5M4.5 10H3M5.3 5.3l1 1M14.7 5.3l-1 1M3 20h18M7 16h12"/>'),
+ maghrib:SV('<path d="M3 17h18M7 17a5 5 0 0 1 10 0M12 4v4m0 0l-2-2m2 2l2-2M5 21h14"/>'),
+ isha:SV('<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>'),
+ witr:SV('<path d="M18 13.5A6.5 6.5 0 1 1 10.5 6a5 5 0 0 0 7.5 7.5z"/><path d="M18 3l.8 1.7L20.5 5.5l-1.7.8L18 8l-.8-1.7-1.7-.8 1.7-.8z"/>')
+};
+
+/* ---------- dates (Gregorian + Hijri) ---------- */
+function renderDates(){
+  const now=new Date(), loc=lang==="en"?"en-GB":lang;
+  try{$("gDate").textContent=now.toLocaleDateString(loc,{weekday:"long",day:"numeric",month:"long"});}catch(e){$("gDate").textContent=now.toDateString();}
+  try{$("hDate").textContent=new Intl.DateTimeFormat(loc+"-u-ca-islamic-umalqura",{day:"numeric",month:"long",year:"numeric"}).format(now);}catch(e){$("hDate").textContent="";}
+}
+
+/* ---------- reminders ---------- */
+const goalLeft=()=>Math.max(state.pace*PR().length-daySum(state.log[dayKey()]),0);
+function remDue(){
+  if(!state||!state.rem||!state.rem.on)return false;
+  const [h,m]=state.rem.time.split(":").map(Number), t=new Date(); t.setHours(h,m,0,0);
+  return new Date()>=t && goalLeft()>0;
+}
+let bannerClosed="";
+function renderRem(){
+  if(!state||!state.rem)return;
+  $("remOn").checked=!!state.rem.on; $("remBody").hidden=!state.rem.on;
+  if(document.activeElement!==$("remTime"))$("remTime").value=state.rem.time;
+  let st="";
+  if(state.rem.on){
+    if(!("Notification" in window))st=tr("remStNA");
+    else if(Notification.permission==="denied")st=tr("remStDenied");
+    else if(Notification.permission==="granted")st=tr("remStOn");
+  }
+  $("remStatus").textContent=st; $("remStatus").hidden=!st;
+  const due=remDue()&&bannerClosed!==dayKey();
+  $("remBanner").hidden=!due;
+  if(due)$("remBannerText").textContent=tr("remBanner",{m:goalLeft()});
+}
+async function notifyNow(){
+  const opts={body:tr("notifBody",{m:goalLeft()}),icon:"icon-192.png",badge:"icon-192.png",tag:"qaza-reminder"};
+  try{const reg=await navigator.serviceWorker.ready;await reg.showNotification(tr("notifTitle"),opts);}
+  catch(e){try{new Notification(tr("notifTitle"),opts);}catch(_){}}
+}
+function checkRem(){
+  if(!state||!state.rem)return;
+  renderRem();
+  if(remDue()&&state.rem.last!==dayKey()&&"Notification" in window&&Notification.permission==="granted"){
+    state.rem.last=dayKey(); try{localStorage.setItem("qaza-state",JSON.stringify(state));}catch(e){}
+    notifyNow();
+  }
+}
+$("remOn").onchange=async()=>{
+  state.rem.on=$("remOn").checked;
+  if(state.rem.on&&"Notification" in window&&Notification.permission==="default"){try{await Notification.requestPermission();}catch(e){}}
+  commit(); renderRem();
+  if(state.rem.on)toast(tr("tRemSaved",{t:state.rem.time}));
+};
+$("remTime").onchange=()=>{const v=$("remTime").value;if(!v)return;state.rem.time=v;state.rem.last="";commit();toast(tr("tRemSaved",{t:v}));};
+$("remBannerClose").onclick=()=>{bannerClosed=dayKey();renderRem();};
+const appUrl=()=>location.href.split("#")[0];
+function calStamp(addMin){
+  const [h,m]=state.rem.time.split(":").map(Number),d=new Date();d.setHours(h,m+addMin,0,0);
+  const p=n=>String(n).padStart(2,"0");
+  return `${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}T${p(d.getHours())}${p(d.getMinutes())}00`;
+}
+$("remGcal").onclick=()=>{
+  const tz=Intl.DateTimeFormat().resolvedOptions().timeZone||"Asia/Karachi";
+  const url="https://calendar.google.com/calendar/render?action=TEMPLATE"
+    +"&text="+encodeURIComponent(tr("calTitle"))
+    +"&details="+encodeURIComponent(tr("calDesc")+" "+appUrl())
+    +"&dates="+calStamp(0)+"/"+calStamp(15)
+    +"&recur="+encodeURIComponent("RRULE:FREQ=DAILY")
+    +"&ctz="+encodeURIComponent(tz);
+  const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener";document.body.appendChild(a);a.click();a.remove();
+};
+$("remIcs").onclick=()=>{
+  const now=new Date().toISOString().replace(/[-:]/g,"").split(".")[0]+"Z";
+  const esc=t=>t.replace(/([,;\\])/g,"\\$1");
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Qaza Namaz Tracker//EN","CALSCALE:GREGORIAN","BEGIN:VEVENT",
+    "UID:qaza-reminder-"+Date.now()+"@qaza-tracker","DTSTAMP:"+now,"DTSTART:"+calStamp(0),"DTEND:"+calStamp(15),
+    "RRULE:FREQ=DAILY","SUMMARY:"+esc(tr("calTitle")),"DESCRIPTION:"+esc(tr("calDesc")+" "+appUrl()),"URL:"+appUrl(),
+    "BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:"+esc(tr("calTitle")),"TRIGGER:PT0M","END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const blob=new Blob([ics],{type:"text/calendar"}),a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);a.download="qaza-reminder.ics";document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),3000); toast(tr("tCal"));
+};
+setInterval(checkRem,60000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden){renderDates();checkRem();}});
 
 /* ---------- boot ---------- */
 applyLang();
