@@ -1,5 +1,5 @@
 // Offline support: app files are cached on install; fonts are cached the first time they load.
-const CACHE = "qaza-v3";
+const CACHE = "qaza-v4";
 const FILES = ["./", "index.html", "privacy.html", "manifest.json",
   "icon-192.png", "icon-512.png", "maskable-192.png", "maskable-512.png",
   "apple-touch-icon.png", "favicon-32.png"];
